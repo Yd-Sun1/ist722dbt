@@ -1,0 +1,28 @@
+
+version: 2
+
+models:
+  - name: customers
+    description: One record per customer
+    columns:
+      - name: customer_id
+        description: Primary key
+        data_tests:
+          - unique
+          - not_null
+
+  - name: stg_customers
+    description: Cleaned customer data
+    columns:
+      - name: customer_id
+        data_tests:
+          - unique
+          - not_null
+
+  - name: stg_orders
+    description: Cleaned order data
+    columns:
+      - name: order_id
+        data_tests:
+          - unique
+          - not_null
