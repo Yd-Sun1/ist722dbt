@@ -1,0 +1,56 @@
+version: 2
+
+models:
+  - name: fact_sales
+    description: Transaction fact table. One row per product on an order. Yida Sun (ysun217).
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - orderid
+            - productkey
+    columns:
+      - name: orderid
+        description: Order source key and degenerate dimension.
+        tests:
+          - not_null
+      - name: customerkey
+        description: Customer dimension key.
+        tests:
+          - relationships:
+              to: ref('dim_customer')
+              field: customerkey
+      - name: employeekey
+        description: Employee dimension key.
+        tests:
+          - relationships:
+              to: ref('dim_employee')
+              field: employeekey
+      - name: orderdatekey
+        description: Order date dimension key.
+        tests:
+          - relationships:
+              to: ref('dim_date')
+              field: datekey
+      - name: productkey
+        description: Product dimension key.
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_product')
+              field: productkey
+      - name: quantity
+        description: Product quantity ordered.
+        tests:
+          - not_null
+      - name: extendedpriceamount
+        description: Quantity times unit price before discount.
+        tests:
+          - not_null
+      - name: discountamount
+        description: Extended price times discount rate.
+        tests:
+          - not_null
+      - name: soldamount
+        description: Extended price less discount amount.
+        tests:
+          - not_null

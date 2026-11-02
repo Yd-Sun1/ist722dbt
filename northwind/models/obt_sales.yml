@@ -1,0 +1,5 @@
+version: 2
+
+models:
+  - name: obt_sales
+    description: Sales with customer, employee, order date, and product attributes. One row per product on an order.

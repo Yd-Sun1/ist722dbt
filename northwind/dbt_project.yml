@@ -1,0 +1,12 @@
+name: northwind
+version: '1.0.0'
+config-version: 2
+profile: northwind
+
+model-paths: [models]
+
+models:
+  northwind:
+    +materialized: table
+    +database: analytics
+    +schema: northwind

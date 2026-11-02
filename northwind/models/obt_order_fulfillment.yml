@@ -1,0 +1,5 @@
+version: 2
+
+models:
+  - name: obt_order_fulfillment
+    description: Order fulfillment with customer, employee, and order date attributes. One row per order.
