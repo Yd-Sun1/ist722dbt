@@ -1,9 +1,5 @@
-{# ---------------------------------------------------------------------------
-   Surrogate key = md5 hash of the natural key. Same formula as
-   dbt_utils.generate_surrogate_key (verified to give identical values), kept local so the
-   project needs no packages. To switch to the package: add packages.yml and call
-   dbt_utils.generate_surrogate_key([...]) instead.
-   --------------------------------------------------------------------------- #}
+{# Hash natural keys with MD5. The null marker and separator follow
+   dbt_utils.generate_surrogate_key conventions. This local macro needs no package. #}
 {% macro generate_surrogate_key(field_list) %}
 {%- set parts = [] -%}
 {%- for f in field_list -%}
