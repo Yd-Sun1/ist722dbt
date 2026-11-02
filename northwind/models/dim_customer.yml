@@ -2,7 +2,7 @@ version: 2
 
 models:
   - name: dim_customer
-    description: Customer dimension. One row per customer.
+    description: Customer dimension. One row per customer. Yida Sun (ysun217).
     columns:
       - name: customerkey
         description: Customer surrogate key.
