@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: dim_date
+    description: Conformed date dimension. One row per calendar date.
+    columns:
+      - name: datekey
+        description: Date key in YYYYMMDD format.
+        tests:
+          - not_null
+          - unique
+      - name: date
+        description: Calendar date.
+        tests:
+          - not_null
+          - unique
+      - name: year
+        description: Calendar year.
+      - name: month
+        description: Month number.
+      - name: quarter
+        description: Quarter number.
+      - name: day
+        description: Day of the month.
+      - name: dayofweek
+        description: Day of the week number.
+      - name: weekofyear
+        description: Week of the year.
+      - name: dayofyear
+        description: Day of the year.
+      - name: quartername
+        description: Quarter name.
+      - name: monthname
+        description: Month name.
+      - name: dayname
+        description: Day name.
+      - name: weekday
+        description: Weekday indicator.
