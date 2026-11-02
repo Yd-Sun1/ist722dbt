@@ -1,0 +1,71 @@
+version: 2
+
+models:
+  - name: fact_order_fulfillment
+    description: Order fulfillment fact table. One row per order, with product quantities and amounts aggregated.
+    columns:
+      - name: orderid
+        description: Order source key and degenerate dimension.
+        tests:
+          - not_null
+          - unique
+      - name: employeekey
+        description: Employee dimension key.
+        tests:
+          - relationships:
+              to: ref('dim_employee')
+              field: employeekey
+      - name: customerkey
+        description: Customer dimension key.
+        tests:
+          - relationships:
+              to: ref('dim_customer')
+              field: customerkey
+      - name: orderdatekey
+        description: Order date dimension key.
+        tests:
+          - relationships:
+              to: ref('dim_date')
+              field: datekey
+      - name: shippeddatekey
+        description: Shipped date dimension key; null when unshipped.
+        tests:
+          - relationships:
+              to: ref('dim_date')
+              field: datekey
+      - name: requireddatekey
+        description: Required date dimension key.
+        tests:
+          - relationships:
+              to: ref('dim_date')
+              field: datekey
+      - name: shipname
+        description: Shipment recipient name.
+      - name: shipaddress
+        description: Shipment address.
+      - name: shipcity
+        description: Shipment city.
+      - name: shipregion
+        description: Shipment region or state.
+      - name: shippostalcode
+        description: Shipment postal code.
+      - name: shipcountry
+        description: Shipment country.
+      - name: freight
+        description: Shipping cost for the order.
+      - name: shipvia
+        description: Shipper source key.
+      - name: shippercompanyname
+        description: Shipper company name.
+      - name: quantityonorder
+        description: Total product quantity on the order.
+      - name: totalorderamount
+        description: Total quantity times unit price after discounts.
+      - name: daysfromordertoshipped
+        description: Days from order date to shipped date.
+      - name: daysfromordertorequired
+        description: Days from order date to required date.
+      - name: shippedtorequireddelta
+        description: Days shipped after required date; positive means late.
+      - name: shippedontime
+        description: Y if shipped by required date, N if late; null when unknown.
