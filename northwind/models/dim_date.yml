@@ -2,7 +2,7 @@ version: 2
 
 models:
   - name: dim_date
-    description: Conformed date dimension. One row per calendar date.
+    description: Conformed date dimension. One row per calendar date. Yida Sun (ysun217).
     columns:
       - name: datekey
         description: Date key in YYYYMMDD format.

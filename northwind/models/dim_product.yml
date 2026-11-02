@@ -2,7 +2,7 @@ version: 2
 
 models:
   - name: dim_product
-    description: Product dimension. One row per product.
+    description: Product dimension. One row per product. Yida Sun (ysun217).
     columns:
       - name: productkey
         description: Product surrogate key.

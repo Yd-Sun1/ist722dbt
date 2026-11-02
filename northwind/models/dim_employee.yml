@@ -2,7 +2,7 @@ version: 2
 
 models:
   - name: dim_employee
-    description: Employee dimension. One row per employee.
+    description: Employee dimension. One row per employee. Yida Sun (ysun217).
     columns:
       - name: employeekey
         description: Employee surrogate key.
