@@ -11,11 +11,10 @@ target-path: "target"
 clean-targets: ["target", "dbt_packages"]
 
 vars:
-  # Where the raw Olist tables live. Local DuckDB: database = olist_m2 (file name), schema = raw.
-  # Snowflake (dbt Cloud): database OLIST_M2, schema RAW  (override below or in the dbt Cloud environment).
+  # Raw source location in Snowflake. Override these variables if the source moves.
   raw_database: olist_m2
   raw_schema: raw
-  # dim_date range start (Bus Matrix: 2016-01-01) and the bounding box used for 'points inside Brazil' in dim_geography
+  # Calendar start date and coordinate bounds used by dim_geography.
   date_start: '2016-01-01'
   brazil_lat_min: -34.0
   brazil_lat_max: 6.0
