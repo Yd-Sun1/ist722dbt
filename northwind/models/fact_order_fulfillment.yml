@@ -2,7 +2,7 @@ version: 2
 
 models:
   - name: fact_order_fulfillment
-    description: Order fulfillment fact table. One row per order, with product quantities and amounts aggregated.
+    description: Order fulfillment fact table. One row per order, with product quantities and amounts aggregated. Yida Sun (ysun217).
     columns:
       - name: orderid
         description: Order source key and degenerate dimension.
