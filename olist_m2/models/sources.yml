@@ -1,0 +1,19 @@
+version: 2
+
+sources:
+  - name: olist
+    description: "Raw Olist CSVs loaded as-is (all VARCHAR). Snowflake: OLIST_M2.RAW. Local DuckDB: olist_m2.raw."
+    # Override with vars raw_database / raw_schema (dbt_project.yml) to point somewhere else.
+    database: "{{ var('raw_database') }}"
+    schema: "{{ var('raw_schema') }}"
+    tables:
+      - name: ORDER_ITEMS
+        identifier: ORDER_ITEMS
+      - name: ORDERS
+      - name: CUSTOMERS
+      - name: PRODUCTS
+      - name: SELLERS
+      - name: GEOLOCATION
+      - name: PRODUCT_CATEGORY_NAME_TRANSLATION
+      - name: ORDER_PAYMENTS     # not used by Order Item Sales (Bus Matrix: fact_payments)
+      - name: ORDER_REVIEWS      # not used by Order Item Sales (Bus Matrix: fact_reviews)

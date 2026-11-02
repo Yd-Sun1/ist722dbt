@@ -1,0 +1,36 @@
+version: 2
+
+seeds:
+  - name: seed_state_region
+    description: "Brazilian state (UF) -> IBGE macro-region. region = Portuguese name used in the Bus Matrix; region_en = English."
+    config:
+      column_types:
+        state_code: varchar(2)
+        state_name: varchar(30)
+        region: varchar(15)
+        region_en: varchar(15)
+    columns:
+      - name: state_code
+        data_tests: [unique, not_null]
+      - name: region
+        data_tests: [not_null]
+  - name: seed_category_override
+    description: "English names for product categories that are missing from product_category_name_translation.csv (pc_gamer and portateis_cozinha_e_preparadores_de_alimentos). Names are our own translation."
+    columns:
+      - name: product_category_name
+        data_tests: [unique, not_null]
+  - name: seed_holidays
+    description: "Brazilian federal holidays (holiday_type = national) and pontos facultativos (optional) for 2016-2019. Easter-based dates computed; fixed dates and 2016-2018 pontos facultativos checked against the MPOG/MPDG portarias. 2019 pontos facultativos follow the published 2019 calendar. Dates outside 2016-2019 are not flagged."
+    config:
+      column_types:
+        holiday_date: date
+        holiday_name: varchar(50)
+        holiday_type: varchar(10)
+    columns:
+      - name: holiday_date
+        data_tests: [unique, not_null]
+      - name: holiday_type
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['national', 'optional']

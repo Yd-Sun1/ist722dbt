@@ -1,0 +1,35 @@
+name: 'olist_m2'
+version: '1.0.0'
+config-version: 2
+profile: 'olist_m2'
+
+model-paths: ["models"]
+macro-paths: ["macros"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+target-path: "target"
+clean-targets: ["target", "dbt_packages"]
+
+vars:
+  # Where the raw Olist tables live. Local DuckDB: database = olist_m2 (file name), schema = raw.
+  # Snowflake (dbt Cloud): database OLIST_M2, schema RAW  (override below or in the dbt Cloud environment).
+  raw_database: olist_m2
+  raw_schema: raw
+  # dim_date range start (Bus Matrix: 2016-01-01) and the bounding box used for 'points inside Brazil' in dim_geography
+  date_start: '2016-01-01'
+  brazil_lat_min: -34.0
+  brazil_lat_max: 6.0
+  brazil_lng_min: -74.0
+  brazil_lng_max: -34.0
+
+models:
+  olist_m2:
+    +schema: olist
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table
+
+seeds:
+  olist_m2:
+    +schema: olist
