@@ -2,7 +2,7 @@ version: 2
 
 models:
   - name: fact_sales
-    description: Transaction fact table. One row per product on an order.
+    description: Transaction fact table. One row per product on an order. Yida Sun (ysun217).
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
