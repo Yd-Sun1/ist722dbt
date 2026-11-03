@@ -2,70 +2,70 @@ version: 2
 
 models:
   - name: fact_order_fulfillment
-    description: Order fulfillment fact table. One row per order, with product quantities and amounts aggregated. Yida Sun (ysun217).
+    description: One row per order. Yida Sun (ysun217).
     columns:
       - name: orderid
-        description: Order source key and degenerate dimension.
+        description: Order ID.
         tests:
           - not_null
           - unique
       - name: employeekey
-        description: Employee dimension key.
+        description: Employee key.
         tests:
           - relationships:
               to: ref('dim_employee')
               field: employeekey
       - name: customerkey
-        description: Customer dimension key.
+        description: Customer key.
         tests:
           - relationships:
               to: ref('dim_customer')
               field: customerkey
       - name: orderdatekey
-        description: Order date dimension key.
+        description: Order date key.
         tests:
           - relationships:
               to: ref('dim_date')
               field: datekey
       - name: shippeddatekey
-        description: Shipped date dimension key; null when unshipped.
+        description: Ship date key.
         tests:
           - relationships:
               to: ref('dim_date')
               field: datekey
       - name: requireddatekey
-        description: Required date dimension key.
+        description: Required date key.
         tests:
           - relationships:
               to: ref('dim_date')
               field: datekey
       - name: shipname
-        description: Shipment recipient name.
+        description: Recipient.
       - name: shipaddress
-        description: Shipment address.
+        description: Ship address.
       - name: shipcity
-        description: Shipment city.
+        description: Ship city.
       - name: shipregion
-        description: Shipment region or state.
+        description: Ship region.
       - name: shippostalcode
-        description: Shipment postal code.
+        description: Ship postal code.
       - name: shipcountry
-        description: Shipment country.
+        description: Ship country.
       - name: freight
-        description: Shipping cost for the order.
+        description: Freight.
       - name: shipvia
-        description: Shipper source key.
+        description: Shipper ID.
       - name: shippercompanyname
-        description: Shipper company name.
+        description: Shipper name.
       - name: quantityonorder
-        description: Total product quantity on the order.
+        description: Quantity.
       - name: totalorderamount
-        description: Total quantity times unit price after discounts.
+        description: Net order total.
       - name: daysfromordertoshipped
-        description: Days from order date to shipped date.
+        description: Days to ship.
       - name: daysfromordertorequired
-        description: Days from order date to required date.
+        description: Days until required.
       - name: shippedtorequireddelta
-        description: Days shipped after required date; positive means late.
+        description: Days late.
       - name: shippedontime
-        description: Y if shipped by required date, N if late; null when unknown.
+        description: On time (Y/N).
