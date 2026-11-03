@@ -2,7 +2,7 @@ version: 2
 
 models:
   - name: fact_sales
-    description: Transaction fact table. One row per product on an order. Yida Sun (ysun217).
+    description: One row per order and product. Yida Sun (ysun217).
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -10,47 +10,47 @@ models:
             - productkey
     columns:
       - name: orderid
-        description: Order source key and degenerate dimension.
+        description: Order ID.
         tests:
           - not_null
       - name: customerkey
-        description: Customer dimension key.
+        description: Customer key.
         tests:
           - relationships:
               to: ref('dim_customer')
               field: customerkey
       - name: employeekey
-        description: Employee dimension key.
+        description: Employee key.
         tests:
           - relationships:
               to: ref('dim_employee')
               field: employeekey
       - name: orderdatekey
-        description: Order date dimension key.
+        description: Order date key.
         tests:
           - relationships:
               to: ref('dim_date')
               field: datekey
       - name: productkey
-        description: Product dimension key.
+        description: Product key.
         tests:
           - not_null
           - relationships:
               to: ref('dim_product')
               field: productkey
       - name: quantity
-        description: Product quantity ordered.
+        description: Quantity.
         tests:
           - not_null
       - name: extendedpriceamount
-        description: Quantity times unit price before discount.
+        description: Gross amount.
         tests:
           - not_null
       - name: discountamount
-        description: Extended price times discount rate.
+        description: Discount amount.
         tests:
           - not_null
       - name: soldamount
-        description: Extended price less discount amount.
+        description: Net amount.
         tests:
           - not_null
