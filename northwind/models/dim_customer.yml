@@ -2,35 +2,35 @@ version: 2
 
 models:
   - name: dim_customer
-    description: Customer dimension. One row per customer. Yida Sun (ysun217).
+    description: Customers. Yida Sun (ysun217).
     columns:
       - name: customerkey
-        description: Customer surrogate key.
+        description: Customer key.
         tests:
           - not_null
           - unique
       - name: customerid
-        description: Customer source key.
+        description: Customer ID.
         tests:
           - not_null
           - unique
       - name: companyname
-        description: Customer company name.
+        description: Company name.
       - name: contactname
-        description: Customer contact name.
+        description: Contact name.
       - name: contacttitle
-        description: Customer contact title.
+        description: Contact title.
       - name: customeraddress
-        description: Customer address.
+        description: Address.
       - name: customercity
-        description: Customer city.
+        description: City.
       - name: customerregion
-        description: Customer region or state.
+        description: Region.
       - name: customerpostalcode
-        description: Customer postal code.
+        description: Postal code.
       - name: customercountry
-        description: Customer country.
+        description: Country.
       - name: customerphone
-        description: Customer phone number.
+        description: Phone.
       - name: customerfax
-        description: Customer fax number.
+        description: Fax.
