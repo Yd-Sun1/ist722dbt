@@ -2,32 +2,32 @@ version: 2
 
 models:
   - name: dim_date
-    description: Conformed date dimension. One row per calendar date. Yida Sun (ysun217).
+    description: Dates. Yida Sun (ysun217).
     columns:
       - name: datekey
-        description: Date key in YYYYMMDD format.
+        description: Date key.
         tests:
           - not_null
           - unique
       - name: date
-        description: Calendar date.
+        description: Date.
         tests:
           - not_null
           - unique
       - name: year
-        description: Calendar year.
+        description: Year.
       - name: month
-        description: Month number.
+        description: Month.
       - name: quarter
-        description: Quarter number.
+        description: Quarter.
       - name: day
-        description: Day of the month.
+        description: Day of month.
       - name: dayofweek
-        description: Day of the week number.
+        description: Day of week.
       - name: weekofyear
-        description: Week of the year.
+        description: Week of year.
       - name: dayofyear
-        description: Day of the year.
+        description: Day of year.
       - name: quartername
         description: Quarter name.
       - name: monthname
@@ -35,4 +35,4 @@ models:
       - name: dayname
         description: Day name.
       - name: weekday
-        description: Weekday indicator.
+        description: Weekday.
