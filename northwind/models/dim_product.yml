@@ -2,27 +2,27 @@ version: 2
 
 models:
   - name: dim_product
-    description: Product dimension. One row per product. Yida Sun (ysun217).
+    description: Products. Yida Sun (ysun217).
     columns:
       - name: productkey
-        description: Product surrogate key.
+        description: Product key.
         tests:
           - not_null
           - unique
       - name: productid
-        description: Product source key.
+        description: Product ID.
         tests:
           - not_null
           - unique
       - name: productname
         description: Product name.
       - name: supplierkey
-        description: Supplier surrogate key derived from supplier ID.
+        description: Supplier key.
       - name: categoryname
-        description: Product category name.
+        description: Category name.
         tests:
           - not_null
       - name: categorydescription
-        description: Product category description.
+        description: Category description.
         tests:
           - not_null
